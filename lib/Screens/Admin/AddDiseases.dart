@@ -12,8 +12,10 @@ class AddDiseases extends StatefulWidget{
 }
 
 class _AddDiseasesState extends State<AddDiseases>{
+
   String _TITLE = "Add Disease";
-  final _formKey = GlobalKey();
+
+  final _formKey = GlobalKey<FormState>();
   final _addDisease = AddDiseaseModel();
 
   @override
@@ -42,13 +44,74 @@ class _AddDiseasesState extends State<AddDiseases>{
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Drug Name', border: OutlineInputBorder()),
+                      decoration: InputDecoration(labelText: 'Disease Name', border: OutlineInputBorder()),
                       validator: (value){
                         if (value.isEmpty){
                           return 'Please enter disease name';
                         }
+                        return null;
                       },
                       onSaved: (val) => setState(() => _addDisease.disease_name = val),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: TextFormField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: 5,
+                      decoration: InputDecoration(labelText: 'Description', border: OutlineInputBorder()),
+                      validator: (value){
+                        if (value.isEmpty){
+                          return 'Please enter description';
+                        }
+                        return null;
+                      },
+                      onSaved: (val) => setState(() => _addDisease.description = val),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: TextFormField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: 3,
+                      decoration: InputDecoration(labelText: 'Symptoms', border: OutlineInputBorder()),
+                      validator: (value){
+                        if (value.isEmpty){
+                          return 'Please enter disease name';
+                        }
+                        return null;
+                      },
+                      onSaved: (val) => setState(() => _addDisease.symptoms = val),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: TextFormField(
+                      keyboardType: TextInputType.multiline,
+                      maxLines: 3,
+                      decoration: InputDecoration(labelText: 'Medication', border: OutlineInputBorder()),
+                      validator: (value){
+                        if (value.isEmpty){
+                          return 'Please enter disease name';
+                        }
+                        return null;
+                      },
+                      onSaved: (val) => setState(() => _addDisease.medication = val),
+                    ),
+                  ),
+                  Container(
+                    padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+                    child: ElevatedButton(
+                      onPressed: (){
+                        final form = _formKey.currentState;
+                        if(form.validate()){
+                          form.save();
+                          _addDisease.save();
+                          _showDialog(context);
+                          form.reset();
+                        }
+                      },
+                      child: Text('Save'),
                     ),
                   )
                 ],
@@ -58,6 +121,11 @@ class _AddDiseasesState extends State<AddDiseases>{
         ),
       )
     );
+  }
+
+  _showDialog(BuildContext context) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text('Disease added')));
   }
 
 }
