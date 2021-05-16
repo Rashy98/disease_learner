@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
+import 'package:disease_learner/Screens/Models/AddDisease.Model.dart';
 
 
 class AddDiseases extends StatefulWidget{
@@ -13,6 +14,7 @@ class AddDiseases extends StatefulWidget{
 class _AddDiseasesState extends State<AddDiseases>{
   String _TITLE = "Add Disease";
   final _formKey = GlobalKey();
+  final _addDisease = AddDiseaseModel();
 
   @override
   Widget build(BuildContext context) {
@@ -22,26 +24,37 @@ class _AddDiseasesState extends State<AddDiseases>{
         title: Text(_TITLE),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Container(
-              margin: const EdgeInsets.only(top: 20),
-              child: Align(
-                alignment: Alignment.topCenter,
-                child: Text('Add Disease'),
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
+          child: Builder(
+            builder: (context) => Form(
+              key: _formKey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Align(
+                    alignment: Alignment.topCenter,
+                    child: Text(
+                      'Add Disease',
+                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(top: 20),
+                    child: TextFormField(
+                      decoration: InputDecoration(labelText: 'Drug Name', border: OutlineInputBorder()),
+                      validator: (value){
+                        if (value.isEmpty){
+                          return 'Please enter disease name';
+                        }
+                      },
+                      onSaved: (val) => setState(() => _addDisease.disease_name = val),
+                    ),
+                  )
+                ],
               ),
             ),
-            Container(
-              margin: const EdgeInsets.only(top: 50, left: 10),
-              child: TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Add Disease'
-                ),
-              ),
-            )
-          ],
+          ),
         ),
       )
     );
