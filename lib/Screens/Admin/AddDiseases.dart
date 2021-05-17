@@ -1,7 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
-import 'package:disease_learner/Screens/Models/AddDisease.Model.dart';
+import 'package:disease_learner/Screens/Models/Disease.Model.dart';
+import 'package:disease_learner/Screens/DBConnection/Database.dart';
 
 
 class AddDiseases extends StatefulWidget{
@@ -16,10 +17,11 @@ class _AddDiseasesState extends State<AddDiseases>{
   String _TITLE = "Add Disease";
 
   final _formKey = GlobalKey<FormState>();
-  final _addDisease = AddDiseaseModel();
+  final _addDisease = DiseaseModel();
 
   @override
   Widget build(BuildContext context) {
+    _addDisease.save();
     return Scaffold(
       drawer: NavDrawer(),
       appBar: AppBar(
@@ -106,7 +108,10 @@ class _AddDiseasesState extends State<AddDiseases>{
                         final form = _formKey.currentState;
                         if(form.validate()){
                           form.save();
+
+                          var res = SQLiteDbProvider.db.insert(_addDisease);
                           _addDisease.save();
+                          // print(res);
                           _showDialog(context);
                           form.reset();
                         }
