@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Admin/AddDiseases.dart';
 import 'package:disease_learner/Screens/User/ViewDiseaseNames.dart';
-import 'package:disease_learner/Screens/User/diseases.dart';
+
 
 
 class NavDrawer extends StatefulWidget {
@@ -64,8 +64,8 @@ class _NavDrawerD extends State {
                 fontSize: 20
             ),),
             onTap: () => { Navigator.of(context).pop(),
-               Navigator.push(
-                   context, MaterialPageRoute(builder: (context) => ListPage()))
+//               Navigator.push(
+//                   context, MaterialPageRoute(builder: (context) => ListPage()))
                   },
           ),
           ListTile(
