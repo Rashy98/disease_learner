@@ -20,6 +20,7 @@ class DiseaseModel{
     "medication": medication
   };
 
+
   save() async {
     // print('Disease $disease_name saved' );
     // print(SQLiteDbProvider.db.getAllDiseases());
@@ -34,4 +35,6 @@ class DiseaseModel{
       print(element.medication);
     });
   }
+
+
 }

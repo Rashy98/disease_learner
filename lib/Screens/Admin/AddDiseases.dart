@@ -29,6 +29,12 @@ class _AddDiseasesState extends State<AddDiseases>{
       ),
       body: SingleChildScrollView(
         child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("lib/assets/images/back.jpg"),
+              fit: BoxFit.cover,
+            ),
+          ),
           padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
           child: Builder(
             builder: (context) => Form(
@@ -40,13 +46,18 @@ class _AddDiseasesState extends State<AddDiseases>{
                     alignment: Alignment.topCenter,
                     child: Text(
                       'Add Disease',
-                      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                      style: TextStyle(fontWeight: FontWeight.bold, color:Color.fromRGBO(245, 229, 186, 1), fontSize: 20),
                     ),
                   ),
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: 'Disease Name', border: OutlineInputBorder()),
+                      style: TextStyle(color: Colors.white),
+                      decoration: InputDecoration(labelText: 'Disease Name',
+                        labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        border: OutlineInputBorder(),
+                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))) ,
+                        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
                       validator: (value){
                         if (value.isEmpty){
                           return 'Please enter disease name';
@@ -59,9 +70,15 @@ class _AddDiseasesState extends State<AddDiseases>{
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
+                      style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 5,
-                      decoration: InputDecoration(labelText: 'Description', border: OutlineInputBorder()),
+                      decoration: InputDecoration(labelText: 'Description',
+                        labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        border: OutlineInputBorder(),
+                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
+                        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
+                      ),
                       validator: (value){
                         if (value.isEmpty){
                           return 'Please enter description';
@@ -74,9 +91,14 @@ class _AddDiseasesState extends State<AddDiseases>{
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
+                      style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 3,
-                      decoration: InputDecoration(labelText: 'Symptoms', border: OutlineInputBorder()),
+                      decoration: InputDecoration(labelText: 'Symptoms',
+                        labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        border: OutlineInputBorder(),
+                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
+                        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
                       validator: (value){
                         if (value.isEmpty){
                           return 'Please enter disease name';
@@ -89,9 +111,14 @@ class _AddDiseasesState extends State<AddDiseases>{
                   Container(
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
+                      style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 3,
-                      decoration: InputDecoration(labelText: 'Medication', border: OutlineInputBorder()),
+                      decoration: InputDecoration(labelText: 'Medication',
+                        labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        border: OutlineInputBorder(),
+                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
+                        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
                       validator: (value){
                         if (value.isEmpty){
                           return 'Please enter disease name';
@@ -103,7 +130,8 @@ class _AddDiseasesState extends State<AddDiseases>{
                   ),
                   Container(
                     padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
-                    child: ElevatedButton(
+                    child: RaisedButton(
+                      color: Color.fromRGBO(245, 229, 186, 1),
                       onPressed: (){
                         final form = _formKey.currentState;
                         if(form.validate()){
@@ -129,7 +157,7 @@ class _AddDiseasesState extends State<AddDiseases>{
   }
 
   _showDialog(BuildContext context) {
-    ScaffoldMessenger.of(context)
+    Scaffold.of(context)
         .showSnackBar(SnackBar(content: Text('Disease added')));
   }
 

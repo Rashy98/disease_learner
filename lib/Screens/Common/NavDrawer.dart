@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Admin/AddDiseases.dart';
+import 'package:disease_learner/Screens/User/ViewDiseaseNames.dart';
+
 
 class NavDrawer extends StatefulWidget {
   @override
@@ -73,9 +75,9 @@ class _NavDrawerD extends State {
             ),),
             onTap: () => {
               Navigator.of(context).pop(),
-////              Navigator.push(
-//                  context, MaterialPageRoute(builder: (context) => ATMLocator())
-//              )
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => ViewDiseaseNames())
+              )
         },
 
           ),
