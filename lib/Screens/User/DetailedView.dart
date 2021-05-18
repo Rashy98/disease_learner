@@ -30,21 +30,6 @@ class DetailPage extends StatelessWidget {
           style: TextStyle(color: Colors.white, fontSize: 45.0),
         ),
         SizedBox(height: 10.0),
-//        Row(
-//          mainAxisAlignment: MainAxisAlignment.start,
-//          children: <Widget>[
-//            Expanded(flex: 1, child: levelIndicator),
-//            Expanded(
-//                flex: 6,
-//                child: Padding(
-//                    padding: EdgeInsets.only(left: 10.0),
-//                    child: Text(
-//                      lesson.level,
-//                      style: TextStyle(color: Colors.white),
-//                    ))),
-////            Expanded(flex: 1, child: coursePrice)
-//          ],
-//        ),
       ],
     );
 
@@ -63,7 +48,7 @@ class DetailPage extends StatelessWidget {
           height: MediaQuery.of(context).size.height * 0.5,
           padding: EdgeInsets.all(40.0),
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, .9)),
+          decoration: BoxDecoration(color: Color.fromRGBO(9, 125, 164, 0.6)),
           child: Center(
             child: topContentText,
           ),
@@ -112,15 +97,7 @@ class DetailPage extends StatelessWidget {
         )
 
     );
-    final readButton = Container(
-        padding: EdgeInsets.symmetric(vertical: 16.0),
-        width: MediaQuery.of(context).size.width,
-        child: RaisedButton(
-          onPressed: () => {},
-          color: Color.fromRGBO(58, 66, 86, 1.0),
-          child:
-          Text("Go Back", style: TextStyle(color: Colors.white)),
-        ));
+
 
 
 

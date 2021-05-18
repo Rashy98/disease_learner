@@ -37,7 +37,7 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
     if(list != null) {
       list.forEach((element) {
         listArray.add(new Container(
-            decoration: BoxDecoration(color: Color.fromRGBO(35, 57, 97, 1),borderRadius: BorderRadius.circular(5)),
+            decoration: BoxDecoration(color: Color.fromRGBO(9, 125, 164, 1),borderRadius: BorderRadius.circular(5)),
             margin: const EdgeInsets.only(bottom: 10.0),
             child:new ListTile(
           contentPadding:
@@ -79,7 +79,6 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
 
       Navigator.push(
           context, MaterialPageRoute(builder: (context) => DetailPage(disease_name: element.disease_name,description: element.description,symptoms: element.symptoms,medication: element.medication,)));
-//          context, MaterialPageRoute(builder: (context) => DetailPage(diseases.toMap()['disease_name'].toString(),diseases.toMap()['description'].toString(),diseases.toMap()['symptoms'].toString(),diseases.toMap()['medication'].toString())));
           },
         )));
       setState(() {
@@ -104,7 +103,7 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: <Color>[
-                      Color.fromRGBO(90, 125, 164, 1),
+                      Color.fromRGBO(9, 125, 164, 1),
                       Color.fromRGBO(35, 57, 97, 1),
                     ])
             ),
@@ -128,7 +127,7 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
                               bottomRight: Radius.circular(50.0)),
                           gradient: new LinearGradient(
                               colors: [
-                                Color.fromRGBO(90, 125, 164, 1),
+                                Color.fromRGBO(9, 125, 164, 1),
                                 Color.fromRGBO(35, 57, 97, 1),
                               ],
                               begin: const FractionalOffset(0.0, 0.0),
@@ -168,18 +167,9 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
                         height: 50,
                       ),
 
-//                      Column(
-//                        children: isLoading ?[CircularProgressIndicator()]:[
-//                          ListView(
-//                            children: listArray
-//                            ,
-//                          )
-//                        ],
-//                      ),
                       Card(
                         child: Column(
                             children: isLoading? [CircularProgressIndicator()]:listArray
-//                            listArray
                         ),
                       ),
 

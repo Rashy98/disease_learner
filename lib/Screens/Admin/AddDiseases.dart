@@ -24,16 +24,87 @@ class _AddDiseasesState extends State<AddDiseases>{
     _addDisease.save();
     return Scaffold(
       drawer: NavDrawer(),
-      appBar: AppBar(
-        title: Text(_TITLE),
-      ),
-      body: SingleChildScrollView(
+        appBar: AppBar(
+          flexibleSpace: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: <Color>[
+                      Color.fromRGBO(9, 125, 164, 1),
+                      Color.fromRGBO(35, 57, 97, 1),
+                    ])
+            ),
+          ),
+//          title: Text(_TITLE,style: TextStyle(fontSize: 12),),
+        ),
+
+        body: SingleChildScrollView(
         child: Container(
-          decoration: BoxDecoration(
+            decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("lib/assets/images/back.jpg"),
+              image: AssetImage("lib/assets/images/detail.jpg"),
               fit: BoxFit.cover,
             ),
+            ),
+          margin: const EdgeInsets.only(top: 0),
+          padding: EdgeInsets.symmetric(horizontal: 0),
+          child: SingleChildScrollView(
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+              Container(
+              decoration: new BoxDecoration(
+//                   border: Border.all(color: Colors.red),
+              borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(50.0),
+              bottomRight: Radius.circular(50.0)),
+          gradient: new LinearGradient(
+              colors: [
+                Color.fromRGBO(9, 125, 164, 1),
+                Color.fromRGBO(35, 57, 97, 1),
+              ],
+              begin: const FractionalOffset(0.0, 0.0),
+              end: const FractionalOffset(1.0, 0.0),
+              stops: [0.0, 1.0],
+              tileMode: TileMode.clamp),
+        ),
+          child: Padding(
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                    height: 100,
+                    width: 412,
+                    decoration: BoxDecoration(
+//                        border: Border.all(color: Colors.red),
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(20.0),
+                            bottomRight: Radius.circular(20.0)),
+                        boxShadow: [
+//                          BoxShadow(color:  Colors.red)
+                        ]
+                    ),
+                    child: Center(
+                        child: Text(_TITLE, style: TextStyle(
+                            color: Colors.white, fontSize: 30),
+                          textAlign: TextAlign.center,)
+                    )
+                ),
+              ],
+            ),
+          ),
+        ),
+
+        Container(
+          decoration: BoxDecoration(
+//            image: DecorationImage(
+//              image: AssetImage("lib/assets/images/detail.jpg"),
+//              fit: BoxFit.cover,
+//            ),
           ),
           padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
           child: Builder(
@@ -42,22 +113,31 @@ class _AddDiseasesState extends State<AddDiseases>{
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Align(
-                    alignment: Alignment.topCenter,
-                    child: Text(
-                      'Add Disease',
-                      style: TextStyle(fontWeight: FontWeight.bold, color:Color.fromRGBO(245, 229, 186, 1), fontSize: 20),
-                    ),
-                  ),
+
                   Container(
-                    margin: EdgeInsets.only(top: 20),
+                    decoration: BoxDecoration(
+
+                      borderRadius: BorderRadius.circular(5),
+                      gradient: new LinearGradient(
+                          colors: [
+
+                            Color.fromRGBO(245, 229, 186, 0.9),
+                            Color.fromRGBO(245, 255, 255, 0.9),
+                          
+
+                          ],
+                          begin: const FractionalOffset(0.0, 0.0),
+                          end: const FractionalOffset(1.0, 0.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
+                    margin: EdgeInsets.only(top: 10),
                     child: TextFormField(
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(labelText: 'Disease Name',
-                        labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                         border: OutlineInputBorder(),
-                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))) ,
-                        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
+                      ),
                       validator: (value){
                         if (value.isEmpty){
                           return 'Please enter disease name';
@@ -68,16 +148,29 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ),
                   ),
                   Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      gradient: new LinearGradient(
+                          colors: [
+//                            Color.fromRGBO(30, 57, 97, 0.9),
+                            Color.fromRGBO(245, 229, 186, 0.9),
+                            Color.fromRGBO(245, 255, 255, 0.9),
+
+                          ],
+                          begin: const FractionalOffset(0.0, 0.0),
+                          end: const FractionalOffset(1.0, 0.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
                       style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 5,
                       decoration: InputDecoration(labelText: 'Description',
-                        labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                         border: OutlineInputBorder(),
-                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
-                        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
+
                       ),
                       validator: (value){
                         if (value.isEmpty){
@@ -89,16 +182,28 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ),
                   ),
                   Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      gradient: new LinearGradient(
+                          colors: [
+                            Color.fromRGBO(245, 229, 186, 0.9),
+                            Color.fromRGBO(245, 255, 255, 0.9),
+                          ],
+                          begin: const FractionalOffset(0.0, 0.0),
+                          end: const FractionalOffset(1.0, 0.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
+                    
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
                       style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 3,
                       decoration: InputDecoration(labelText: 'Symptoms',
-                        labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                         border: OutlineInputBorder(),
-                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
-                        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
+                      ),
                       validator: (value){
                         if (value.isEmpty){
                           return 'Please enter disease name';
@@ -109,16 +214,27 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ),
                   ),
                   Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(5),
+                      gradient: new LinearGradient(
+                          colors: [
+                            Color.fromRGBO(245, 229, 186, 0.9),
+                            Color.fromRGBO(245, 255, 255, 0.9),
+                          ],
+                          begin: const FractionalOffset(0.0, 0.0),
+                          end: const FractionalOffset(1.0, 0.0),
+                          stops: [0.0, 1.0],
+                          tileMode: TileMode.clamp),
+                    ),
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
                       style: TextStyle(color: Colors.white),
                       keyboardType: TextInputType.multiline,
                       maxLines: 3,
                       decoration: InputDecoration(labelText: 'Medication',
-                        labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                         border: OutlineInputBorder(),
-                        enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
-                        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
+                        ),
                       validator: (value){
                         if (value.isEmpty){
                           return 'Please enter disease name';
@@ -129,9 +245,9 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
                     child: RaisedButton(
-                      color: Color.fromRGBO(245, 229, 186, 1),
+                      color: Color.fromRGBO(245, 229, 186, 0.9),
                       onPressed: (){
                         final form = _formKey.currentState;
                         if(form.validate()){
@@ -144,7 +260,7 @@ class _AddDiseasesState extends State<AddDiseases>{
                           form.reset();
                         }
                       },
-                      child: Text('Save'),
+                      child: Text('Save Disease',style: TextStyle(fontSize: 24),),
                     ),
                   )
                 ],
@@ -152,7 +268,11 @@ class _AddDiseasesState extends State<AddDiseases>{
             ),
           ),
         ),
-      )
+      ]
+    )
+    )
+    )
+        )
     );
   }
 
