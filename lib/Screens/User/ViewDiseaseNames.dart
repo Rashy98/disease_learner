@@ -95,7 +95,7 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
     makeListView();
     // TODO: implement build
     return Scaffold(
-      drawer: NavDrawer(),
+      // drawer: NavDrawer(),
         appBar: AppBar(
           flexibleSpace: Container(
             decoration: BoxDecoration(

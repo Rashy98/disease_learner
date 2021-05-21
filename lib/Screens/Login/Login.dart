@@ -1,48 +1,41 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Models/User.Model.dart';
 import 'package:disease_learner/Screens/DBConnection/Database.dart';
+import 'package:disease_learner/Screens/User/ViewDiseaseNames.dart';
 
-
-class RegisterPage extends StatefulWidget{
+class Login extends StatefulWidget {
+  const Login({Key key}) : super(key: key);
 
   @override
-  _RegisterPageState createState() => _RegisterPageState();
+  _LoginState createState() => _LoginState();
 }
 
+class _LoginState extends State<Login>{
 
-class _RegisterPageState extends State <RegisterPage> {
+  String _TITLE = "Login";
 
-
-final formKey = GlobalKey <FormState> ();
-final user = UserModel ();
+  final _formKey = GlobalKey<FormState>();
+  final _user = UserModel();
 
   @override
-  Widget build(BuildContext context_) {
-    // SQLiteDbProvider.db.getUserbyEmail('nuwana24@gmail.com');
+  Widget build(BuildContext context) {
 
     return Scaffold(
 
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          flexibleSpace: Container(
-            decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
-                    colors: <Color>[
-                      Color.fromRGBO(9, 125, 164, 1),
-                      Color.fromRGBO(35, 57, 97, 1),
-                    ])
-            ),
+      appBar: AppBar(
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: <Color>[
+                    Color.fromRGBO(9, 125, 164, 1),
+                    Color.fromRGBO(35, 57, 97, 1),
+                  ])
           ),
-
-//        title: Text('TicketingApp'),
-
         ),
+      ),
+
         body: SingleChildScrollView(
             child: Container(
                 decoration: BoxDecoration(
@@ -60,7 +53,6 @@ final user = UserModel ();
                         children: [
                           Container(
                             decoration: new BoxDecoration(
-//                   border: Border.all(color: Colors.red),
                               borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(50.0),
                                   bottomRight: Radius.circular(50.0)),
@@ -84,16 +76,14 @@ final user = UserModel ();
                                       height: 100,
                                       width: 412,
                                       decoration: BoxDecoration(
-//                        border: Border.all(color: Colors.red),
                                           borderRadius: BorderRadius.only(
                                               bottomLeft: Radius.circular(20.0),
                                               bottomRight: Radius.circular(20.0)),
                                           boxShadow: [
-//                          BoxShadow(color:  Colors.red)
                                           ]
                                       ),
                                       child: Center(
-                                          child: Text("Sign Up", style: TextStyle(
+                                          child: Text(_TITLE, style: TextStyle(
                                               color: Colors.white, fontSize: 30),
                                             textAlign: TextAlign.center,)
                                       )
@@ -105,15 +95,11 @@ final user = UserModel ();
 
                           Container(
                             decoration: BoxDecoration(
-//            image: DecorationImage(
-//              image: AssetImage("lib/assets/images/detail.jpg"),
-//              fit: BoxFit.cover,
-//            ),
                             ),
                             padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
                             child: Builder(
                               builder: (context) => Form(
-                                key: formKey,
+                                key: _formKey,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.stretch,
                                   children: [
@@ -127,8 +113,6 @@ final user = UserModel ();
 
                                               Color.fromRGBO(245, 229, 186, 0.9),
                                               Color.fromRGBO(245, 255, 255, 0.9),
-
-
                                             ],
                                             begin: const FractionalOffset(0.0, 0.0),
                                             end: const FractionalOffset(1.0, 0.0),
@@ -137,18 +121,18 @@ final user = UserModel ();
                                       ),
                                       margin: EdgeInsets.only(top: 10),
                                       child: TextFormField(
-                                        style: TextStyle(color: Colors.white),
-                                        decoration: InputDecoration(labelText: 'First Name',
+                                        style: TextStyle(color: Colors.black),
+                                        decoration: InputDecoration(labelText: 'Username',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                                           border: OutlineInputBorder(),
                                         ),
                                         validator: (value){
                                           if (value.isEmpty){
-                                            return 'Please enter first name';
+                                            return 'Please enter username';
                                           }
                                           return null;
                                         },
-                                        onSaved: (fname) => setState(() => user.first_name = fname),
+                                        onSaved: (val) => setState(() => _user.email = val),
                                       ),
                                     ),
                                     Container(
@@ -168,78 +152,19 @@ final user = UserModel ();
                                       ),
                                       margin: EdgeInsets.only(top: 20),
                                       child: TextFormField(
-                                        style: TextStyle(color: Colors.white),
-                                        decoration: InputDecoration(labelText: 'Last Name',
-                                          labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
-                                          border: OutlineInputBorder(),
-
-                                        ),
-                                        validator: (value){
-                                          if (value.isEmpty){
-                                            return 'Please enter Last Name';
-                                          }
-                                          return null;
-                                        },
-                                        onSaved: (lname) => setState(() => user.last_name = lname),
-                                      ),
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        gradient: new LinearGradient(
-                                            colors: [
-                                              Color.fromRGBO(245, 229, 186, 0.9),
-                                              Color.fromRGBO(245, 255, 255, 0.9),
-                                            ],
-                                            begin: const FractionalOffset(0.0, 0.0),
-                                            end: const FractionalOffset(1.0, 0.0),
-                                            stops: [0.0, 1.0],
-                                            tileMode: TileMode.clamp),
-                                      ),
-
-                                      margin: EdgeInsets.only(top: 20),
-                                      child: TextFormField(
-                                        style: TextStyle(color: Colors.white),
-                                        decoration: InputDecoration(labelText: 'Email',
-                                          labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
-                                          border: OutlineInputBorder(),
-                                        ),
-                                        validator: (value){
-                                          if (value.isEmpty){
-                                            return 'Please enter Email';
-                                          }
-                                          return null;
-                                        },
-                                        onSaved: (email) => setState(() => user.email = email),
-                                      ),
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        gradient: new LinearGradient(
-                                            colors: [
-                                              Color.fromRGBO(245, 229, 186, 0.9),
-                                              Color.fromRGBO(245, 255, 255, 0.9),
-                                            ],
-                                            begin: const FractionalOffset(0.0, 0.0),
-                                            end: const FractionalOffset(1.0, 0.0),
-                                            stops: [0.0, 1.0],
-                                            tileMode: TileMode.clamp),
-                                      ),
-                                      margin: EdgeInsets.only(top: 20),
-                                      child: TextFormField(
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(color: Colors.black),
                                         decoration: InputDecoration(labelText: 'Password',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                                           border: OutlineInputBorder(),
+
                                         ),
                                         validator: (value){
                                           if (value.isEmpty){
-                                            return 'Please enter Password';
+                                            return 'Please enter password';
                                           }
                                           return null;
                                         },
-                                        onSaved: (pass) => setState(() => user.password = pass),
+                                        onSaved: (val) => setState(() => _user.password = val),
                                       ),
                                     ),
                                     Container(
@@ -247,18 +172,18 @@ final user = UserModel ();
                                       child: RaisedButton(
                                         color: Color.fromRGBO(245, 229, 186, 0.9),
                                         onPressed: (){
-                                          final form = formKey.currentState;
+                                          final form = _formKey.currentState;
                                           if(form.validate()){
                                             form.save();
 
-                                            var res = SQLiteDbProvider.db.addUser(user);
-                                            //SQLiteDbProvider.db.getUserbyEmail(user.email);
-                                            // print(res);
+                                            SQLiteDbProvider.db.getUserbyEmail(_user.email, _user.password)
+                                              .then((value) => _handleLogin(value, context)
+                                            );
                                             _showDialog(context);
                                             form.reset();
                                           }
                                         },
-                                        child: Text('Save Disease',style: TextStyle(fontSize: 24),),
+                                        child: Text('Login',style: TextStyle(fontSize: 24),),
                                       ),
                                     )
                                   ],
@@ -271,11 +196,23 @@ final user = UserModel ();
                 )
             )
         )
-
     );
   }
-_showDialog(BuildContext context) {
-  Scaffold.of(context)
-      .showSnackBar(SnackBar(content: Text('User added')));
-}
+
+  _handleLogin(bool state, BuildContext context){
+
+    if (state){
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ViewDiseaseNames())
+      );
+    }
+  }
+
+  _showDialog(BuildContext context) {
+    Scaffold.of(context)
+        .showSnackBar(SnackBar(content: Text('Login Failed')));
+  }
+
 }

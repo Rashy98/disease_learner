@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 
 /** Custom Model Clases **/
@@ -28,7 +29,7 @@ class SQLiteDbProvider {
   initDB() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentDirectory.path, "Diseases.db");
-   // await deleteDatabase(path);
+    // await deleteDatabase(path);
 
     return await openDatabase(
         path,
@@ -99,11 +100,22 @@ class SQLiteDbProvider {
 
     return result;
   }
-  Future <UserModel> getUserbyEmail (String email) async {
+  Future <bool> getUserbyEmail (String email, String password) async {
 
     final db = await database;
     var result = await db.query("UserDetails", where: "email = ?", whereArgs: [email]);
-    result.isNotEmpty?  print(result.first): print("empty");
+
+    print(result.first);
+    if(result.isNotEmpty){
+      if(result.first['password'] == password){
+        final token = await SharedPreferences.getInstance();
+        token.setString('Name', result.first['first_name']);
+        return true;
+      }
+    }
+    // result.isNotEmpty?  print(result.first['password']): print("empty");
+    return false;
+
   }
 
   Future<List<UserModel>> getAllUsers() async{

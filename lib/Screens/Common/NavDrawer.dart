@@ -1,6 +1,8 @@
+import 'package:disease_learner/Screens/Login/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Admin/AddDiseases.dart';
 import 'package:disease_learner/Screens/User/ViewDiseaseNames.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 
@@ -13,6 +15,7 @@ class NavDrawer extends StatefulWidget {
 
 }
 class _NavDrawerD extends State {
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -26,7 +29,7 @@ class _NavDrawerD extends State {
           child: DrawerHeader(
 
             child: Text(
-              'MANUJAYA' ,
+              "ADMIN" ,
               style: TextStyle(color: Color.fromRGBO(245, 229, 186, 1), fontSize: 20),
             ),
           ),
@@ -91,9 +94,10 @@ class _NavDrawerD extends State {
             ),
             ),
             onTap: () {
-              Navigator.pop(context);
-//              Navigator.push(
-//                  context, MaterialPageRoute(builder: (context) => ContactUs()));
+
+             //  Navigator.pop(context);
+             // Navigator.push(
+             //     context, MaterialPageRoute(builder: (context) => Login()));
             },
 
           ),
@@ -104,15 +108,22 @@ class _NavDrawerD extends State {
                 fontSize: 20
             ),),
             onTap: () => {
-    Navigator.of(context).pop(),
-//              Navigator.push(
-//                context, MaterialPageRoute(builder: (context) => Login())
-    })
+                _logout(),
+                Navigator.pop(context),
+                Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Login()))
+            })
             ],
           ),
 
       )
 
     );
+  }
+
+  _logout() async {
+    final token = await SharedPreferences.getInstance();
+
+    token.remove("Name");
   }
 }

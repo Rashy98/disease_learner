@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
 import 'package:disease_learner/Screens/Models/Disease.Model.dart';
 import 'package:disease_learner/Screens/DBConnection/Database.dart';
-
 
 class AddDiseases extends StatefulWidget{
   const AddDiseases({ Key key }) : super(key:key);
@@ -36,7 +34,6 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ])
             ),
           ),
-//          title: Text(_TITLE,style: TextStyle(fontSize: 12),),
         ),
 
         body: SingleChildScrollView(
@@ -56,7 +53,6 @@ class _AddDiseasesState extends State<AddDiseases>{
                   children: [
               Container(
               decoration: new BoxDecoration(
-//                   border: Border.all(color: Colors.red),
               borderRadius: BorderRadius.only(
               bottomLeft: Radius.circular(50.0),
               bottomRight: Radius.circular(50.0)),
@@ -80,12 +76,10 @@ class _AddDiseasesState extends State<AddDiseases>{
                     height: 100,
                     width: 412,
                     decoration: BoxDecoration(
-//                        border: Border.all(color: Colors.red),
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20.0),
                             bottomRight: Radius.circular(20.0)),
                         boxShadow: [
-//                          BoxShadow(color:  Colors.red)
                         ]
                     ),
                     child: Center(
@@ -101,10 +95,6 @@ class _AddDiseasesState extends State<AddDiseases>{
 
         Container(
           decoration: BoxDecoration(
-//            image: DecorationImage(
-//              image: AssetImage("lib/assets/images/detail.jpg"),
-//              fit: BoxFit.cover,
-//            ),
           ),
           padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
           child: Builder(
@@ -206,7 +196,7 @@ class _AddDiseasesState extends State<AddDiseases>{
                       ),
                       validator: (value){
                         if (value.isEmpty){
-                          return 'Please enter disease name';
+                          return 'Please enter symptoms';
                         }
                         return null;
                       },
@@ -237,7 +227,7 @@ class _AddDiseasesState extends State<AddDiseases>{
                         ),
                       validator: (value){
                         if (value.isEmpty){
-                          return 'Please enter disease name';
+                          return 'Please enter medication';
                         }
                         return null;
                       },
@@ -260,7 +250,7 @@ class _AddDiseasesState extends State<AddDiseases>{
                           form.reset();
                         }
                       },
-                      child: Text('Save Disease',style: TextStyle(fontSize: 24),),
+                      child: Text('Save',style: TextStyle(fontSize: 24),),
                     ),
                   )
                 ],
@@ -276,6 +266,7 @@ class _AddDiseasesState extends State<AddDiseases>{
     );
   }
 
+  /** Dsiplay success tost message **/
   _showDialog(BuildContext context) {
     Scaffold.of(context)
         .showSnackBar(SnackBar(content: Text('Disease added')));
