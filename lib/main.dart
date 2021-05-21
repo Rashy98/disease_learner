@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
+import 'package:disease_learner/Screens/Login/Register.dart';
 import 'package:disease_learner/Screens/User/ViewDiseaseNames.dart';
 
 void main() {
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: ViewDiseaseNames(),
+      home: RegisterPage(),
     );
   }
 }

@@ -6,6 +6,8 @@ import 'package:sqflite/sqflite.dart';
 
 /** Custom Model Clases **/
 import 'package:disease_learner/Screens/Models/Disease.Model.dart';
+import 'package:disease_learner/Screens/Models/User.Model.dart';
+
 
 /** Singleton based DB provider class **/
 class SQLiteDbProvider {
@@ -26,6 +28,7 @@ class SQLiteDbProvider {
   initDB() async {
     Directory documentDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentDirectory.path, "Diseases.db");
+   // await deleteDatabase(path);
 
     return await openDatabase(
         path,
@@ -39,6 +42,14 @@ class SQLiteDbProvider {
                   "description TEXT,"
                   "symptoms TEXT,"
                   "medication TEXT" ")"
+          );
+          await db.execute(
+              "CREATE TABLE UserDetails("
+                  "id INTEGER PRIMARY KEY,"
+                  "email TEXT,"
+                  "password TEXT,"
+                  "first_name TEXT,"
+                  "last_name TEXT" ")"
           );
         }
     );
@@ -73,6 +84,34 @@ class SQLiteDbProvider {
       _diseaseModel.medication = results[index]['medication'];
 
       return _diseaseModel;
+    });
+
+  }
+  addUser(UserModel userModel) async{
+
+    final db = await database;
+    var maxIdResult = await db.rawQuery("SELECT MAX(id)+1 as last_inserted_id FROM UserDetails");
+
+    var id = maxIdResult.first["last_inserted_id"];
+    userModel.id = id;
+
+    var result = await db.insert('UserDetails', userModel.toMap(), conflictAlgorithm: ConflictAlgorithm.abort);
+
+    return result;
+  }
+  Future <UserModel> getUserbyEmail (String email) async {
+
+    final db = await database;
+    var result = await db.query("UserDetails", where: "email = ?", whereArgs: [email]);
+    result.isNotEmpty?  print(result.first): print("empty");
+  }
+
+  Future<List<UserModel>> getAllUsers() async{
+    final db = await database;
+    List<Map<String, dynamic>> results = await db.query("UserDetails", columns: UserModel.columns, orderBy: "id ASC");
+
+    List.generate(results.length, (index) {
+      print(results[index]['email']);
     });
 
   }
