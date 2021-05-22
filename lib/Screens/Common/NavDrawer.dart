@@ -1,6 +1,8 @@
 import 'package:disease_learner/Screens/Login/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Admin/AddDiseases.dart';
+import 'package:disease_learner/Screens/Admin/EditDiseases.dart';
+import 'package:disease_learner/Screens/Admin/ViewDiseaseList.dart';
 import 'package:disease_learner/Screens/User/ViewDiseaseNames.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -55,22 +57,18 @@ class _NavDrawerD extends State {
             },
           ),
 
-
-
-
-
-
-       ListTile(
-            leading: Icon(Icons.edit),
-            title: Text('Edit/Delete Diseases',style: const TextStyle(
+          ListTile(
+            leading: Icon(Icons.remove_red_eye),
+            title: Text('View Diseases',style: const TextStyle(
                 color: Color.fromRGBO(254, 246, 222, 1),
                 fontSize: 20
             ),),
             onTap: () => { Navigator.of(context).pop(),
-//               Navigator.push(
-//                   context, MaterialPageRoute(builder: (context) => ListPage()))
-                  },
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => ViewDiseaseList()))
+            },
           ),
+
           ListTile(
             leading: Icon(Icons.view_headline),
             title: Text("User's view",style: const TextStyle(

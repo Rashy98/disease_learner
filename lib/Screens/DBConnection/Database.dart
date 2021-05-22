@@ -70,6 +70,22 @@ class SQLiteDbProvider {
     return result;
   }
 
+  /** Delete diseases **/
+  delete(int id) async {
+
+    final db = await database;
+    await db.delete('DiseaseDetails', where: "id = ?", whereArgs: [id]);
+
+  }
+  /** Update diseases **/
+  update(DiseaseModel diseaseModel) async {
+    final db = await database;
+    var result = await db.update(
+        'DiseaseDetails', diseaseModel.toMap(), where: "id = ?", whereArgs: [diseaseModel.id], conflictAlgorithm: ConflictAlgorithm.abort
+    );
+    return result;
+  }
+
   /** Get all diseases **/
   Future<List<DiseaseModel>> getAllDiseases() async{
     final db = await database;
