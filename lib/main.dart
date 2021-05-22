@@ -1,3 +1,4 @@
+import 'package:disease_learner/Screens/Admin/AddDiseases.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
 import 'package:disease_learner/Screens/Login/Register.dart';

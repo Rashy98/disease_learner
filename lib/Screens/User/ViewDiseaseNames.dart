@@ -1,10 +1,12 @@
 
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
+import 'package:disease_learner/Screens/Login/Login.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/DBConnection/Database.dart';
 import 'package:disease_learner/Screens/User/DetailedView.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class ViewDiseaseNames extends StatefulWidget{
@@ -89,6 +91,16 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
   }
       }
 
+  _logout(BuildContext context) async {
+    final token = await SharedPreferences.getInstance();
+
+    token.remove("Name");
+
+    Navigator.pop(context);
+    Navigator.push(
+    context, MaterialPageRoute(builder: (context) => Login()));
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -108,6 +120,17 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
                     ])
             ),
           ),
+          actions: <Widget>[
+            Padding(
+                padding: EdgeInsets.only(right: 20.0),
+                child: GestureDetector(
+                  onTap: () { _logout(context);},
+                  child: Icon(
+                      Icons.exit_to_app
+                  ),
+                )
+            ),
+          ],
 //          title: Text(_TITLE,style: TextStyle(fontSize: 12),),
         ),
 

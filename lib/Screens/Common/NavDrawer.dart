@@ -106,10 +106,10 @@ class _NavDrawerD extends State {
                 fontSize: 20
             ),),
             onTap: () => {
-                _logout(),
-                Navigator.pop(context),
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Login()))
+                _logout(context),
+                // Navigator.pop(context),
+                // Navigator.push(
+                //     context, MaterialPageRoute(builder: (context) => Login()))
             })
             ],
           ),
@@ -119,9 +119,13 @@ class _NavDrawerD extends State {
     );
   }
 
-  _logout() async {
+  _logout(BuildContext context) async {
     final token = await SharedPreferences.getInstance();
 
     token.remove("Name");
+
+    Navigator.pop(context);
+    Navigator.push(
+    context, MaterialPageRoute(builder: (context) => Login()));
   }
 }
