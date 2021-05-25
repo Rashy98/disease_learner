@@ -40,7 +40,7 @@ class _AddDiseasesState extends State<AddDiseases>{
         child: Container(
             decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("lib/assets/images/detail.jpg"),
+              image: AssetImage("lib/assets/images/mainBackground.jpg"),
               fit: BoxFit.cover,
             ),
             ),
@@ -107,26 +107,28 @@ class _AddDiseasesState extends State<AddDiseases>{
                   Container(
                     decoration: BoxDecoration(
 
-                      borderRadius: BorderRadius.circular(5),
-                      gradient: new LinearGradient(
-                          colors: [
-
-                            Color.fromRGBO(245, 229, 186, 0.9),
-                            Color.fromRGBO(245, 255, 255, 0.9),
-                          
-
-                          ],
-                          begin: const FractionalOffset(0.0, 0.0),
-                          end: const FractionalOffset(1.0, 0.0),
-                          stops: [0.0, 1.0],
-                          tileMode: TileMode.clamp),
+                      borderRadius: BorderRadius.circular(10),
+//                      gradient: new LinearGradient(
+//                          colors: [
+//
+//                            Color.fromRGBO(245, 229, 186, 0.9),
+//                            Color.fromRGBO(245, 255, 255, 0.9),
+//
+//
+//                          ],
+//                          begin: const FractionalOffset(0.0, 0.0),
+//                          end: const FractionalOffset(1.0, 0.0),
+//                          stops: [0.0, 1.0],
+//                          tileMode: TileMode.clamp),
                     ),
                     margin: EdgeInsets.only(top: 10),
                     child: TextFormField(
                       style: TextStyle(color: Colors.white),
                       decoration: InputDecoration(labelText: 'Disease Name',
                         labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                       validator: (value){
                         if (value.isEmpty){
@@ -139,18 +141,18 @@ class _AddDiseasesState extends State<AddDiseases>{
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      gradient: new LinearGradient(
-                          colors: [
-//                            Color.fromRGBO(30, 57, 97, 0.9),
-                            Color.fromRGBO(245, 229, 186, 0.9),
-                            Color.fromRGBO(245, 255, 255, 0.9),
-
-                          ],
-                          begin: const FractionalOffset(0.0, 0.0),
-                          end: const FractionalOffset(1.0, 0.0),
-                          stops: [0.0, 1.0],
-                          tileMode: TileMode.clamp),
+                      borderRadius: BorderRadius.circular(10),
+//                      gradient: new LinearGradient(
+//                          colors: [
+////                            Color.fromRGBO(30, 57, 97, 0.9),
+//                            Color.fromRGBO(245, 229, 186, 0.9),
+//                            Color.fromRGBO(245, 255, 255, 0.9),
+//
+//                          ],
+//                          begin: const FractionalOffset(0.0, 0.0),
+//                          end: const FractionalOffset(1.0, 0.0),
+//                          stops: [0.0, 1.0],
+//                          tileMode: TileMode.clamp),
                     ),
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
@@ -159,7 +161,9 @@ class _AddDiseasesState extends State<AddDiseases>{
                       maxLines: 5,
                       decoration: InputDecoration(labelText: 'Description',
                         labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
 
                       ),
                       validator: (value){
@@ -173,16 +177,16 @@ class _AddDiseasesState extends State<AddDiseases>{
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      gradient: new LinearGradient(
-                          colors: [
-                            Color.fromRGBO(245, 229, 186, 0.9),
-                            Color.fromRGBO(245, 255, 255, 0.9),
-                          ],
-                          begin: const FractionalOffset(0.0, 0.0),
-                          end: const FractionalOffset(1.0, 0.0),
-                          stops: [0.0, 1.0],
-                          tileMode: TileMode.clamp),
+                      borderRadius: BorderRadius.circular(10),
+//                      gradient: new LinearGradient(
+//                          colors: [
+//                            Color.fromRGBO(245, 229, 186, 0.9),
+//                            Color.fromRGBO(245, 255, 255, 0.9),
+//                          ],
+//                          begin: const FractionalOffset(0.0, 0.0),
+//                          end: const FractionalOffset(1.0, 0.0),
+//                          stops: [0.0, 1.0],
+//                          tileMode: TileMode.clamp),
                     ),
                     
                     margin: EdgeInsets.only(top: 20),
@@ -192,7 +196,9 @@ class _AddDiseasesState extends State<AddDiseases>{
                       maxLines: 3,
                       decoration: InputDecoration(labelText: 'Symptoms',
                         labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                       ),
                       validator: (value){
                         if (value.isEmpty){
@@ -205,16 +211,16 @@ class _AddDiseasesState extends State<AddDiseases>{
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(5),
-                      gradient: new LinearGradient(
-                          colors: [
-                            Color.fromRGBO(245, 229, 186, 0.9),
-                            Color.fromRGBO(245, 255, 255, 0.9),
-                          ],
-                          begin: const FractionalOffset(0.0, 0.0),
-                          end: const FractionalOffset(1.0, 0.0),
-                          stops: [0.0, 1.0],
-                          tileMode: TileMode.clamp),
+                      borderRadius: BorderRadius.circular(10),
+//                      gradient: new LinearGradient(
+//                          colors: [
+//                            Color.fromRGBO(245, 229, 186, 0.9),
+//                            Color.fromRGBO(245, 255, 255, 0.9),
+//                          ],
+//                          begin: const FractionalOffset(0.0, 0.0),
+//                          end: const FractionalOffset(1.0, 0.0),
+//                          stops: [0.0, 1.0],
+//                          tileMode: TileMode.clamp),
                     ),
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
@@ -223,7 +229,9 @@ class _AddDiseasesState extends State<AddDiseases>{
                       maxLines: 3,
                       decoration: InputDecoration(labelText: 'Medication',
                         labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
-                        border: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                         ),
                       validator: (value){
                         if (value.isEmpty){
@@ -235,9 +243,12 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ),
                   ),
                   Container(
-                    padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
+                    padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
                     child: RaisedButton(
-                      color: Color.fromRGBO(245, 229, 186, 0.9),
+                      textColor: Colors.white,
+                      color: Color.fromRGBO(35, 57, 97, 1),
+                      shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                      padding: EdgeInsets.all(8),
                       onPressed: (){
                         final form = _formKey.currentState;
                         if(form.validate()){

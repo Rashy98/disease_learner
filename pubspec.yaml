@@ -52,6 +52,8 @@ flutter:
     - lib/assets/images/detail.jpg
     - lib/assets/images/login.jpg
     - lib/assets/images/signUp.jpg
+    - lib/assets/images/mainBackground.jpg
+
 
 
 

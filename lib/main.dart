@@ -1,4 +1,7 @@
 import 'package:disease_learner/Screens/Admin/AddDiseases.dart';
+import 'package:disease_learner/Screens/Admin/EditDiseases.dart';
+import 'package:disease_learner/Screens/Admin/ViewDiseaseList.dart';
+
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
 import 'package:disease_learner/Screens/Login/Register.dart';
@@ -32,7 +35,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Login(),
+      home: ViewDiseaseList(),
     );
   }
 }

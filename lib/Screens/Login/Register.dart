@@ -277,6 +277,10 @@ final user = UserModel ();
                                             // print(res);
                                             _showDialog(context);
                                             form.reset();
+                                            Navigator.pop(context);
+                                            Navigator.push(
+                                                context, MaterialPageRoute(builder: (context) => Login())
+                                            );
                                           }
                                         },
                                         child: Text('Submit',style: TextStyle(fontSize: 24),),

@@ -37,7 +37,7 @@ class _EditDiseasesState extends State<EditDiseases>{
           child: Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("lib/assets/images/back.jpg"),
+                image: AssetImage("lib/assets/images/mainBackground.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -56,15 +56,20 @@ class _EditDiseasesState extends State<EditDiseases>{
                       ),
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+//
+                      ),
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
                         style: TextStyle(color: Colors.white),
                         initialValue:widget.disease_name,
                         decoration: InputDecoration(labelText: widget.disease_name,
                           labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
-                          border: OutlineInputBorder(),
-                          enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))) ,
-                          focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
                         validator: (value){
                           if (value.isEmpty){
                             return 'Please enter disease name';
@@ -75,6 +80,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                       ),
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+//
+                      ),
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
                         style: TextStyle(color: Colors.white),
@@ -83,10 +92,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                         initialValue:widget.description,
                         decoration: InputDecoration(labelText: widget.description,
                           labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
-                          border: OutlineInputBorder(),
-                          enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
-                          focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
-                        ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                       ),
                         validator: (value){
                           if (value.isEmpty){
                             return 'Please enter description';
@@ -97,6 +106,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                       ),
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+//
+                      ),
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
                         style: TextStyle(color: Colors.white),
@@ -105,9 +118,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                         initialValue: widget.symptoms,
                         decoration: InputDecoration(labelText: widget.symptoms,
                           labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
-                          border: OutlineInputBorder(),
-                          enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
-                          focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          ),
                         validator: (value){
                           if (value.isEmpty){
                             return 'Please enter Symptoms';
@@ -118,6 +132,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                       ),
                     ),
                     Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+//
+                      ),
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
                         style: TextStyle(color: Colors.white),
@@ -126,9 +144,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                         initialValue: widget.medication,
                         decoration: InputDecoration(labelText: widget.medication,
                           labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
-                          border: OutlineInputBorder(),
-                          enabledBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),
-                          focusedBorder: const OutlineInputBorder(borderSide: BorderSide(color: Color.fromRGBO(245, 229, 186, 1))),),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          ),
                         validator: (value){
                           if (value.isEmpty){
                             return 'Please enter Medication';
@@ -141,7 +160,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                     Container(
                       padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                       child: RaisedButton(
-                        color: Color.fromRGBO(245, 229, 186, 1),
+                        textColor: Colors.white,
+                        color: Color.fromRGBO(35, 57, 97, 1),
+                        shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                        padding: EdgeInsets.all(8),
                         onPressed: (){
                           final form = _formKey.currentState;
                           if(form.validate()){
