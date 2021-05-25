@@ -1,3 +1,4 @@
+import 'package:disease_learner/Screens/Login/Register.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Models/User.Model.dart';
 import 'package:disease_learner/Screens/DBConnection/Database.dart';
@@ -215,6 +216,32 @@ class _LoginState extends State<Login>{
                                         },
                                         child: Text('Login',style: TextStyle(fontSize: 24),),
                                       ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Text(
+                                          'New to Disease Learner ?',
+                                          style: TextStyle(fontFamily: 'Montserrat'),
+                                        ),
+                                        SizedBox(width: 5.0),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                            Navigator.push(
+                                                context, MaterialPageRoute(builder: (context) => RegisterPage())
+                                            );
+                                          },
+                                          child: Text(
+                                            'Register',
+                                            style: TextStyle(
+                                                color: Color.fromARGB(255, 255, 255, 255),
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.bold,
+                                                decoration: TextDecoration.underline),
+                                          ),
+                                        )
+                                      ],
                                     )
                                   ],
                                 ),

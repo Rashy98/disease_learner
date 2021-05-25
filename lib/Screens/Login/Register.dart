@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:disease_learner/Screens/Login/Login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Models/User.Model.dart';
@@ -21,7 +22,7 @@ final formKey = GlobalKey <FormState> ();
 final user = UserModel ();
 
   @override
-  Widget build(BuildContext context_) {
+  Widget build(BuildContext context) {
     // SQLiteDbProvider.db.getUserbyEmail('nuwana24@gmail.com');
 
     return Scaffold(
@@ -280,14 +281,43 @@ final user = UserModel ();
                                         },
                                         child: Text('Submit',style: TextStyle(fontSize: 24),),
                                       ),
-                                    )
+                                    ),
+
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: <Widget>[
+                                        Text(
+                                          'Already Have an Account ?',
+                                          style: TextStyle(fontFamily: 'Montserrat'),
+                                        ),
+                                        SizedBox(width: 5.0),
+                                        InkWell(
+                                          onTap: () {
+                                            Navigator.pop(context);
+                                            Navigator.push(
+                                                context, MaterialPageRoute(builder: (context) => Login())
+                                            );
+                                          },
+                                          child: Text(
+                                            'Login',
+                                            style: TextStyle(
+                                                color: Color.fromARGB(255, 255, 255, 255),
+                                                fontFamily: 'Montserrat',
+                                                fontWeight: FontWeight.bold,
+                                                decoration: TextDecoration.underline),
+                                          ),
+                                        )
+                                      ],
+                                    ),
                                   ],
+
                                 ),
                               ),
                             ),
                           ),
                         ]
                     )
+
                 )
             )
         )
