@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Models/User.Model.dart';
 import 'package:disease_learner/Screens/DBConnection/Database.dart';
 import 'package:disease_learner/Screens/User/ViewDiseaseNames.dart';
+import 'package:disease_learner/Screens/Admin/AddDiseases.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
   const Login({Key key}) : super(key: key);
@@ -23,7 +25,12 @@ class _LoginState extends State<Login>{
     return Scaffold(
 
       appBar: AppBar(
+        title: Text("Disease Learner"),
+        automaticallyImplyLeading: false,
+
+
         flexibleSpace: Container(
+
           decoration: BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
@@ -38,64 +45,69 @@ class _LoginState extends State<Login>{
 
         body: SingleChildScrollView(
             child: Container(
+                padding: EdgeInsets.symmetric(vertical: 90),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("lib/assets/images/detail.jpg"),
-                    fit: BoxFit.cover,
+                    image: AssetImage("lib/assets/images/login.jpg"),
+                    fit: BoxFit.contain,
+
                   ),
                 ),
-                margin: const EdgeInsets.only(top: 0),
-                padding: EdgeInsets.symmetric(horizontal: 0),
+               // margin: const EdgeInsets.only(top: 0),
+               // padding: EdgeInsets.symmetric(horizontal: 0),
                 child: SingleChildScrollView(
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Container(
-                            decoration: new BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  bottomLeft: Radius.circular(50.0),
-                                  bottomRight: Radius.circular(50.0)),
-                              gradient: new LinearGradient(
-                                  colors: [
-                                    Color.fromRGBO(9, 125, 164, 1),
-                                    Color.fromRGBO(35, 57, 97, 1),
-                                  ],
-                                  begin: const FractionalOffset(0.0, 0.0),
-                                  end: const FractionalOffset(1.0, 0.0),
-                                  stops: [0.0, 1.0],
-                                  tileMode: TileMode.clamp),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                      height: 100,
-                                      width: 412,
-                                      decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.only(
-                                              bottomLeft: Radius.circular(20.0),
-                                              bottomRight: Radius.circular(20.0)),
-                                          boxShadow: [
-                                          ]
-                                      ),
-                                      child: Center(
-                                          child: Text(_TITLE, style: TextStyle(
-                                              color: Colors.white, fontSize: 30),
-                                            textAlign: TextAlign.center,)
-                                      )
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ),
+//                          Container(
+//                            decoration: new BoxDecoration(
+//                              borderRadius: BorderRadius.only(
+//                                  bottomLeft: Radius.circular(50.0),
+//                                  bottomRight: Radius.circular(50.0)),
+//                              gradient: new LinearGradient(
+//                                  colors: [
+//                                    Color.fromRGBO(9, 125, 164, 1),
+//                                    Color.fromRGBO(35, 57, 97, 1),
+//                                  ],
+//                                  begin: const FractionalOffset(0.0, 0.0),
+//                                  end: const FractionalOffset(1.0, 0.0),
+//                                  stops: [0.0, 1.0],
+//                                  tileMode: TileMode.clamp),
+//                            ),
+//                            child: Padding(
+//                              padding: const EdgeInsets.all(0),
+//                              child: Column(
+//                                mainAxisAlignment: MainAxisAlignment.start,
+//                                crossAxisAlignment: CrossAxisAlignment.start,
+//                                children: [
+//                                  Container(
+//                                      height: 100,
+//                                      width: 412,
+//                                      decoration: BoxDecoration(
+//                                          borderRadius: BorderRadius.only(
+//                                              bottomLeft: Radius.circular(20.0),
+//                                              bottomRight: Radius.circular(20.0)),
+//                                          boxShadow: [
+//                                          ]
+//                                      ),
+//                                      child: Center(
+//                                          child: Text(_TITLE, style: TextStyle(
+//                                              color: Colors.white, fontSize: 30),
+//                                            textAlign: TextAlign.center,)
+//                                      )
+//                                  ),
+//                                ],
+//                              ),
+//                            ),
+//                          ),
+
 
                           Container(
                             decoration: BoxDecoration(
+
                             ),
+                            margin: EdgeInsets.only(top: 120, bottom: 180),
                             padding: const EdgeInsets.symmetric(vertical: 40.0, horizontal: 16.0),
                             child: Builder(
                               builder: (context) => Form(
@@ -107,24 +119,31 @@ class _LoginState extends State<Login>{
                                     Container(
                                       decoration: BoxDecoration(
 
-                                        borderRadius: BorderRadius.circular(5),
-                                        gradient: new LinearGradient(
-                                            colors: [
+//                                         borderRadius: BorderRadius.circular(20),
+//                                         border: Border.all(
+//                                            width: 1, color: Colors.black, style: BorderStyle.solid)),
 
-                                              Color.fromRGBO(245, 229, 186, 0.9),
-                                              Color.fromRGBO(245, 255, 255, 0.9),
-                                            ],
-                                            begin: const FractionalOffset(0.0, 0.0),
-                                            end: const FractionalOffset(1.0, 0.0),
-                                            stops: [0.0, 1.0],
-                                            tileMode: TileMode.clamp),
+                                        borderRadius: BorderRadius.circular(20),
+//                                        gradient: new LinearGradient(
+//                                            colors: [
+//
+//                                              Color.fromRGBO(245, 255, 255, 0.9),
+//                                              Color.fromRGBO(245, 255, 255, 0.9),
+//                                            ],
+//                                            begin: const FractionalOffset(0.0, 0.0),
+//                                            end: const FractionalOffset(1.0, 0.0),
+//                                            stops: [0.0, 0.0],
+//                                            tileMode: TileMode.clamp),
                                       ),
-                                      margin: EdgeInsets.only(top: 10),
+                                      //margin: EdgeInsets.only(top: 10),
                                       child: TextFormField(
                                         style: TextStyle(color: Colors.black),
                                         decoration: InputDecoration(labelText: 'Username',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
-                                          border: OutlineInputBorder(),
+                                          border: OutlineInputBorder(
+                                              borderRadius: BorderRadius.circular(20),
+
+                                          ),
                                         ),
                                         validator: (value){
                                           if (value.isEmpty){
@@ -137,25 +156,27 @@ class _LoginState extends State<Login>{
                                     ),
                                     Container(
                                       decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(5),
-                                        gradient: new LinearGradient(
-                                            colors: [
-//                            Color.fromRGBO(30, 57, 97, 0.9),
-                                              Color.fromRGBO(245, 229, 186, 0.9),
-                                              Color.fromRGBO(245, 255, 255, 0.9),
-
-                                            ],
-                                            begin: const FractionalOffset(0.0, 0.0),
-                                            end: const FractionalOffset(1.0, 0.0),
-                                            stops: [0.0, 1.0],
-                                            tileMode: TileMode.clamp),
+                                        borderRadius: BorderRadius.circular(20),
+//                                        gradient: new LinearGradient(
+//                                            colors: [
+////                            Color.fromRGBO(30, 57, 97, 0.9),
+//                                              Color.fromRGBO(245, 229, 186, 0.9),
+//                                              Color.fromRGBO(245, 255, 255, 0.9),
+//
+//                                            ],
+//                                            begin: const FractionalOffset(0.0, 0.0),
+//                                            end: const FractionalOffset(1.0, 0.0),
+//                                            stops: [0.0, 1.0],
+//                                            tileMode: TileMode.clamp),
                                       ),
-                                      margin: EdgeInsets.only(top: 20),
+                                      margin: EdgeInsets.only(top: 0),
                                       child: TextFormField(
                                         style: TextStyle(color: Colors.black),
                                         decoration: InputDecoration(labelText: 'Password',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
-                                          border: OutlineInputBorder(),
+                                          border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.circular(20),
+                                          ),
 
                                         ),
                                         validator: (value){
@@ -167,10 +188,18 @@ class _LoginState extends State<Login>{
                                         onSaved: (val) => setState(() => _user.password = val),
                                       ),
                                     ),
+//                                    Container(
+//                                      padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 16.0),
+//                                    ),
+
                                     Container(
+                                      margin: const EdgeInsets.only(top: 0),
                                       padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
                                       child: RaisedButton(
-                                        color: Color.fromRGBO(245, 229, 186, 0.9),
+                                        textColor: Colors.white,
+                                        color: Color.fromRGBO(9, 125, 164, 1),
+                                        shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+                                        padding: EdgeInsets.all(8),
                                         onPressed: (){
                                           final form = _formKey.currentState;
                                           if(form.validate()){
@@ -179,6 +208,7 @@ class _LoginState extends State<Login>{
                                             SQLiteDbProvider.db.getUserbyEmail(_user.email, _user.password)
                                               .then((value) => _handleLogin(value, context)
                                             );
+                                            SQLiteDbProvider.db.getAllUsers();
                                             _showDialog(context);
                                             form.reset();
                                           }
@@ -199,14 +229,24 @@ class _LoginState extends State<Login>{
     );
   }
 
-  _handleLogin(bool state, BuildContext context){
+  _handleLogin(bool state, BuildContext context) async{
+    final token = await SharedPreferences.getInstance();
+    final name = token.getString("Name");
+    print(name);
 
     if (state){
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ViewDiseaseNames())
-      );
+      if(name == "Admin"){
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddDiseases())
+        );
+      }
+      else {
+        Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => ViewDiseaseNames())
+        );
+      }
     }
   }
 

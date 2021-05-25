@@ -140,6 +140,8 @@ class SQLiteDbProvider {
 
     List.generate(results.length, (index) {
       print(results[index]['email']);
+      print(results[index]['password']);
+
     });
 
   }

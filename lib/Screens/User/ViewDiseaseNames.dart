@@ -109,6 +109,7 @@ class ViewDiseaseNamesList extends State<ViewDiseaseNames>{
     return Scaffold(
       // drawer: NavDrawer(),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(

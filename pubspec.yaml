@@ -50,6 +50,10 @@ flutter:
   assets:
     - lib/assets/images/back.jpg
     - lib/assets/images/detail.jpg
+    - lib/assets/images/login.jpg
+    - lib/assets/images/signUp.jpg
+
+
 
 
   # To add assets to your application, add an assets section, like this:

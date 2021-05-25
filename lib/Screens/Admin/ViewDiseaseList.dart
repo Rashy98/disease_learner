@@ -58,12 +58,12 @@ class ViewDisease extends State<ViewDiseaseList>{
                   Container(
                       padding: EdgeInsets.symmetric(vertical: 16.0),
                       width: 100,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.indigo,
-                            textStyle: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold)),
+                      child: RaisedButton(
+//                        style: ElevatedButton.styleFrom(
+//                            primary: Colors.indigo,
+//                            textStyle: TextStyle(
+//                                fontSize: 16,
+//                                fontWeight: FontWeight.bold)),
                         onPressed: () {
                           // final form = _formKey.currentState;
                           // if(form.validate()){
@@ -93,12 +93,12 @@ class ViewDisease extends State<ViewDiseaseList>{
                   Container(
                       padding: EdgeInsets.symmetric(vertical: 16.0),
                       width: 100,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                            primary: Colors.indigo,
-                            textStyle: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold)),
+                      child: RaisedButton(
+//                        style: ElevatedButton.styleFrom(
+//                            primary: Colors.indigo,
+//                            textStyle: TextStyle(
+//                                fontSize: 16,
+//                                fontWeight: FontWeight.bold)),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -135,8 +135,9 @@ class ViewDisease extends State<ViewDiseaseList>{
     makeListView();
     // TODO: implement build
     return Scaffold(
-        drawer: NavDrawer(),
+//        drawer: NavDrawer(),
         appBar: AppBar(
+
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(
@@ -148,8 +149,8 @@ class ViewDisease extends State<ViewDiseaseList>{
                     ])
             ),
           ),
-//          title: Text(_TITLE,style: TextStyle(fontSize: 12),),
-        ),
+
+          ),
 
         body: Container(
             margin: const EdgeInsets.only(top: 0),
