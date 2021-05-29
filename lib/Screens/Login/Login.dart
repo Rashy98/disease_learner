@@ -1,3 +1,4 @@
+import 'package:disease_learner/Screens/Admin/ViewDiseaseList.dart';
 import 'package:disease_learner/Screens/Login/Register.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Models/User.Model.dart';
@@ -170,8 +171,9 @@ class _LoginState extends State<Login>{
 //                                            stops: [0.0, 1.0],
 //                                            tileMode: TileMode.clamp),
                                       ),
-                                      margin: EdgeInsets.only(top: 0),
+                                      margin: EdgeInsets.only(top: 20),
                                       child: TextFormField(
+                                        obscureText: true,
                                         style: TextStyle(color: Colors.black),
                                         decoration: InputDecoration(labelText: 'Password',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
@@ -194,7 +196,7 @@ class _LoginState extends State<Login>{
 //                                    ),
 
                                     Container(
-                                      margin: const EdgeInsets.only(top: 0),
+                                      margin: const EdgeInsets.only(top: 10),
                                       padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 16.0),
                                       child: RaisedButton(
                                         textColor: Colors.white,
@@ -265,7 +267,7 @@ class _LoginState extends State<Login>{
       if(name == "Admin"){
         Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddDiseases())
+            MaterialPageRoute(builder: (context) => ViewDiseaseList())
         );
       }
       else {

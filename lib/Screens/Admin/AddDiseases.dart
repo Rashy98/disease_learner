@@ -1,3 +1,5 @@
+import 'package:disease_learner/Screens/Admin/ViewDiseaseList.dart';
+import 'package:disease_learner/Screens/User/ViewDiseaseNames.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
 import 'package:disease_learner/Screens/Models/Disease.Model.dart';
@@ -123,7 +125,7 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ),
                     margin: EdgeInsets.only(top: 10),
                     child: TextFormField(
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                       decoration: InputDecoration(labelText: 'Disease Name',
                         labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                         border: OutlineInputBorder(
@@ -156,7 +158,7 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ),
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.multiline,
                       maxLines: 5,
                       decoration: InputDecoration(labelText: 'Description',
@@ -191,7 +193,7 @@ class _AddDiseasesState extends State<AddDiseases>{
                     
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.multiline,
                       maxLines: 3,
                       decoration: InputDecoration(labelText: 'Symptoms',
@@ -224,7 +226,7 @@ class _AddDiseasesState extends State<AddDiseases>{
                     ),
                     margin: EdgeInsets.only(top: 20),
                     child: TextFormField(
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: Colors.black),
                       keyboardType: TextInputType.multiline,
                       maxLines: 3,
                       decoration: InputDecoration(labelText: 'Medication',
@@ -259,6 +261,11 @@ class _AddDiseasesState extends State<AddDiseases>{
                           // print(res);
                           _showDialog(context);
                           form.reset();
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ViewDiseaseList())
+                          );
                         }
                       },
                       child: Text('Save',style: TextStyle(fontSize: 24),),

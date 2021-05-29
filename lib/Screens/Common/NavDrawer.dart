@@ -69,36 +69,36 @@ class _NavDrawerD extends State {
             },
           ),
 
-          ListTile(
-            leading: Icon(Icons.view_headline),
-            title: Text("User's view",style: const TextStyle(
-                color: Color.fromRGBO(254, 246, 222, 1),
-                fontSize: 20
-            ),),
-            onTap: () => {
-              Navigator.of(context).pop(),
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => ViewDiseaseNames())
-              )
-        },
-
-          ),
-
-          ListTile(
-            leading: Icon(Icons.local_phone),
-            title: Text('Contact Us' , style: const TextStyle(
-                color: Color.fromRGBO(254, 246, 222, 1),
-                fontSize: 20
-            ),
-            ),
-            onTap: () {
-
-             //  Navigator.pop(context);
-             // Navigator.push(
-             //     context, MaterialPageRoute(builder: (context) => Login()));
-            },
-
-          ),
+        //   ListTile(
+        //     leading: Icon(Icons.view_headline),
+        //     title: Text("User's view",style: const TextStyle(
+        //         color: Color.fromRGBO(254, 246, 222, 1),
+        //         fontSize: 20
+        //     ),),
+        //     onTap: () => {
+        //       Navigator.of(context).pop(),
+        //       Navigator.push(
+        //           context, MaterialPageRoute(builder: (context) => ViewDiseaseNames())
+        //       )
+        // },
+        //
+        //   ),
+        //
+        //   ListTile(
+        //     leading: Icon(Icons.local_phone),
+        //     title: Text('Contact Us' , style: const TextStyle(
+        //         color: Color.fromRGBO(254, 246, 222, 1),
+        //         fontSize: 20
+        //     ),
+        //     ),
+        //     onTap: () {
+        //
+        //      //  Navigator.pop(context);
+        //      // Navigator.push(
+        //      //     context, MaterialPageRoute(builder: (context) => Login()));
+        //     },
+        //
+        //   ),
           ListTile(
             leading: Icon(Icons.exit_to_app),
             title: Text('Logout',style: const TextStyle(

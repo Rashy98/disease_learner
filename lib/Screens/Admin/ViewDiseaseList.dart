@@ -58,12 +58,12 @@ class ViewDisease extends State<ViewDiseaseList>{
                   Container(
                       padding: EdgeInsets.symmetric(vertical: 16.0),
                       width: 100,
-                      child: RaisedButton(
-//                        style: ElevatedButton.styleFrom(
-//                            primary: Colors.indigo,
-//                            textStyle: TextStyle(
-//                                fontSize: 16,
-//                                fontWeight: FontWeight.bold)),
+                      child: ElevatedButton(
+                       style: ElevatedButton.styleFrom(
+                           primary: Colors.indigo,
+                           textStyle: TextStyle(
+                               fontSize: 16,
+                               fontWeight: FontWeight.bold)),
                         onPressed: () {
                           // final form = _formKey.currentState;
                           // if(form.validate()){
@@ -86,19 +86,19 @@ class ViewDisease extends State<ViewDiseaseList>{
                         },
                         //color: Color.fromRGBO(58, 66, 86, 1.0),
                         child:
-                        Text("Delete Disease", style: TextStyle(color: Colors.white)),
+                        Text("Delete", style: TextStyle(color: Colors.white)),
                       )),
-                  SizedBox(height: 100),
+                  SizedBox(width: 10),
                   //Container(height: 10),
                   Container(
                       padding: EdgeInsets.symmetric(vertical: 16.0),
                       width: 100,
-                      child: RaisedButton(
-//                        style: ElevatedButton.styleFrom(
-//                            primary: Colors.indigo,
-//                            textStyle: TextStyle(
-//                                fontSize: 16,
-//                                fontWeight: FontWeight.bold)),
+                      child: ElevatedButton(
+                       style: ElevatedButton.styleFrom(
+                           primary: Colors.indigo,
+                           textStyle: TextStyle(
+                               fontSize: 16,
+                               fontWeight: FontWeight.bold)),
                         onPressed: () {
                           Navigator.push(
                             context,
@@ -107,7 +107,7 @@ class ViewDisease extends State<ViewDiseaseList>{
                         },
                         //color: Color.fromRGBO(58, 66, 86, 1.0),
                         child:
-                        Text("Edit Disease", style: TextStyle(color: Colors.white)),
+                        Text("Edit", style: TextStyle(color: Colors.white)),
                       )),
 
                 ],
@@ -135,7 +135,7 @@ class ViewDisease extends State<ViewDiseaseList>{
     makeListView();
     // TODO: implement build
     return Scaffold(
-//        drawer: NavDrawer(),
+       drawer: NavDrawer(),
         appBar: AppBar(
 
           flexibleSpace: Container(

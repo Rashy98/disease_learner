@@ -145,7 +145,7 @@ final user = UserModel ();
                                       ),
                                       margin: EdgeInsets.only(top: 10),
                                       child: TextFormField(
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(color: Colors.black),
                                         decoration: InputDecoration(labelText: 'First Name',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                                           border: OutlineInputBorder(
@@ -178,7 +178,7 @@ final user = UserModel ();
                                       ),
                                       margin: EdgeInsets.only(top: 20),
                                       child: TextFormField(
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(color: Colors.black),
                                         decoration: InputDecoration(labelText: 'Last Name',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                                           border: OutlineInputBorder(
@@ -211,7 +211,7 @@ final user = UserModel ();
 
                                       margin: EdgeInsets.only(top: 20),
                                       child: TextFormField(
-                                        style: TextStyle(color: Colors.white),
+                                        style: TextStyle(color: Colors.black),
                                         decoration: InputDecoration(labelText: 'Email',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                                           border: OutlineInputBorder(
@@ -242,7 +242,8 @@ final user = UserModel ();
                                       ),
                                       margin: EdgeInsets.only(top: 20),
                                       child: TextFormField(
-                                        style: TextStyle(color: Colors.white),
+                                        obscureText: true,
+                                        style: TextStyle(color: Colors.black),
                                         decoration: InputDecoration(labelText: 'Password',
                                           labelStyle: TextStyle(color:Color.fromRGBO(30, 57, 97, 1),fontSize: 18),
                                           border: OutlineInputBorder(

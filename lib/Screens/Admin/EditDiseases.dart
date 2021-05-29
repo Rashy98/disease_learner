@@ -1,3 +1,4 @@
+import 'package:disease_learner/Screens/Admin/ViewDiseaseList.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:disease_learner/Screens/Common/NavDrawer.dart';
@@ -52,7 +53,7 @@ class _EditDiseasesState extends State<EditDiseases>{
                       alignment: Alignment.topCenter,
                       child: Text(
                         'Edit Disease',
-                        style: TextStyle(fontWeight: FontWeight.bold, color:Color.fromRGBO(245, 229, 186, 1), fontSize: 20),
+                        style: TextStyle(fontWeight: FontWeight.bold, color:Colors.black, fontSize: 20),
                       ),
                     ),
                     Container(
@@ -62,10 +63,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                       ),
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                         initialValue:widget.disease_name,
-                        decoration: InputDecoration(labelText: widget.disease_name,
-                          labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        decoration: InputDecoration(labelText: "Disease Name",
+                          labelStyle: TextStyle(color:Colors.black),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -86,12 +87,12 @@ class _EditDiseasesState extends State<EditDiseases>{
                       ),
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                         keyboardType: TextInputType.multiline,
                         maxLines: 5,
                         initialValue:widget.description,
-                        decoration: InputDecoration(labelText: widget.description,
-                          labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        decoration: InputDecoration(labelText: "Description",
+                          labelStyle: TextStyle(color:Colors.black),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -112,12 +113,12 @@ class _EditDiseasesState extends State<EditDiseases>{
                       ),
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                         keyboardType: TextInputType.multiline,
                         maxLines: 3,
                         initialValue: widget.symptoms,
-                        decoration: InputDecoration(labelText: widget.symptoms,
-                          labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        decoration: InputDecoration(labelText: "Symptoms",
+                          labelStyle: TextStyle(color:Colors.black),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -138,12 +139,12 @@ class _EditDiseasesState extends State<EditDiseases>{
                       ),
                       margin: EdgeInsets.only(top: 20),
                       child: TextFormField(
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Colors.black),
                         keyboardType: TextInputType.multiline,
                         maxLines: 3,
                         initialValue: widget.medication,
-                        decoration: InputDecoration(labelText: widget.medication,
-                          labelStyle: TextStyle(color:Color.fromRGBO(245, 229, 186, 1)),
+                        decoration: InputDecoration(labelText: "Medications",
+                          labelStyle: TextStyle(color:Colors.black),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -173,6 +174,10 @@ class _EditDiseasesState extends State<EditDiseases>{
                             //print(_editDisease);
                             _showDialog(context);
                             form.reset();
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => ViewDiseaseList())
+                            );
                           }
                         },
                         child: Text('Update'),
